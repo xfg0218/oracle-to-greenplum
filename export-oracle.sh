@@ -25,6 +25,9 @@ password='******'
 # 分隔符,16进制转化过来为@@@&&&
 split_char='0x400x400x400x260x260x26'
 
+# 这里添加oracle转换的oracle-conversion.sh脚本
+# time sh  "util/oracle-conversion.sh"
+
 # 使用sqluldr2linux64下载数据到制定的目录
 ./sqluldr2linux64.bin  user=$user_name/$password@$ip:$port/$orcl sql=$oracle_file_path  head=no safe=yes charset=utf8 field=$split_char  FILE=$data_path
 
