@@ -38,7 +38,7 @@
         sqluldr2linux64.bin
         抽取oracle的工具
 # oracle-to-greenplum 使用说明
-
+     su - oracle
      time sh export-oracle.sh 
            0 rows exported at 2019-05-13 12:42:14, size 0 MB.
      1000000 rows exported at 2019-05-13 12:42:20, size 172 MB.
