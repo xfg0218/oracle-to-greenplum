@@ -101,4 +101,42 @@
 	2、替换分隔符与ASCII码耗时1m32s
 	3、创建表结构与导入表数据耗时:19.699s
 	4、总耗时2m32.29s
-# 
+# Oracle  带有 RAW  类型的表结构
+	1、在oracle中数据类型转换
+	请修改util下的oracle-conversion.sh脚本，并在-- oracle   sql   conversion出添加以下转换即可 create table invevents_xiaoxu_a as select id,declaredate,eventcode,eventname,invname,tmstamp||'' as tmstamp,entrydate from invevents_xiaoxu;
+	2、在任务中添加执行oracle-conversion.sh的脚本
+	只要在export-oracle.sh脚本中打开oracle-conversion.sh 即可
+# Oracle 带有CLOB类型的字段
+	1、首先查询CLOB字段的长度
+	2、使用截取字符串的形式截取CLOB字段
+
+	实现步骤如下
+	drop table markinf_xiaoxu;
+	create table markinf_xiaoxu_temp as select * from markinf_xiaoxu;
+
+	alter table newdaas.markinf_xiaoxu_temp rename column typedetaildes to typedetaildes_temp;
+	alter table newdaas.markinf_xiaoxu_temp add typedetaildes1 varchar2(4000);
+	alter table newdaas.markinf_xiaoxu_temp add typedetaildes2 varchar2(4000);
+	********
+
+	update newdaas.markinf_xiaoxu_temp set typedetaildes1=trim(DBMS_LOB.SUBSTR(typedetaildes_temp,1000,1) || DBMS_LOB.SUBSTR(typedetaildes_temp,1000,1001));
+	update newdaas.markinf_xiaoxu_temp set typedetaildes2=trim(DBMS_LOB.SUBSTR(typedetaildes_temp,1000,2001) || DBMS_LOB.SUBSTR(typedetaildes_temp,1000,3001));
+	********
+
+	alter table newdaas.markinf_xiaoxu_temp drop column typedetaildes_temp;
+
+	3、在任务中添加执行oracle-conversion.sh的脚本
+	只要在export-oracle.sh脚本中打开oracle-conversion.sh 即可
+
+	4、使用Greenplum拼接函数拼接字段
+	在greenplum中使用COALESCE函数拼接字段，目的是方式出现空值，实例如下:
+
+	alter table ods.markinf_xiaoxu_temp add  typedetaildes text;
+	update ods.markinf_xiaoxu_temp set typedetaildes=COALESCE(typedetaildes1,'')||COALESCE(typedetaildes2,''); 等等
+
+	alter table ods.markinf_xiaoxu_temp drop column typedetaildes1;
+	alter table ods.markinf_xiaoxu_temp drop column typedetaildes2;
+	*******
+
+
+
