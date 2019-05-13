@@ -70,5 +70,21 @@
 	 sys	0m21.867s
 
 # oracle-to-greenplum 总结说明
-  1、
+       data-dir
+	存放oracle数据落地的目录
+	
+	select-sql
+	sql文件存放的路径,oracle的sql文件以及greenplum的sql文件
+	
+	util
+	常用工具的存放路径
+	
+	export-oracle.sh
+	从oracle落地到磁盘的sh脚本
+	
+	import-greenplum.sh
+	把磁盘的文件导入到greenplum的脚本
+	
+	sqluldr2linux64.bin
+        抽取oracle的工具
 
