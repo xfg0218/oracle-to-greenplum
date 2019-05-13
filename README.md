@@ -1,13 +1,14 @@
 # oracle数据同步到Greenplum的shell脚本
   此脚本在运行时会先把oracle数据按照指定的分隔符下载到磁盘的目录下,再用替换脚本替换需要的分隔符和ascii字符,具体的替换方法请查看fileAsciiReplaceScriptAll.sh脚本
 # oracle  字段映射 Greenplum  字段说明
-   以下字段类型是作者在实际使用时遇到的常见字段类型
-  oracle字段	Greenplum字段
-  varchar2	varchar
-  date	        date
-  timestamp	timestamp
-  clob	        text
-  number	numeric
+	以下字段类型是作者在实际使用时遇到的常见字段类型
+
+	oracle字段	Greenplum字段
+	varchar2	varchar
+	date	        date
+	timestamp	timestamp
+	clob	        text
+	number		numeric
 
 # sqluldr2linux64 工具下载
     
