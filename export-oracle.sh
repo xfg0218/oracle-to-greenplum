@@ -14,13 +14,13 @@ oracle_file_path=$current_path'/select-sql/oracle-sql/updateinfo_xiaoxu.sql'
 data_path=$current_path'/data-dir/'$table_name
 
 # ORACLE 链接信息
-ip='192.168.205.30'
+ip='192.168.***.**'
 
 orcl='orcl'
 port='1521'
 
-user_name='newdaas'
-password='Fcdt201901NewDaas'
+user_name='******'
+password='******'
 
 # 分隔符,16进制转化过来为@@@&&&
 split_char='0x400x400x400x260x260x26'

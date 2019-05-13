@@ -19,13 +19,13 @@ gpdatabase='stagging'
 scheamname='ods'
 
 # gp服务器ip
-gpip='192.168.209.11'
+gpip='192.168.***.**'
 
 #gp port
 gpport='5432'
 
 # gp user
-gpuser='gpadmin'
+gpuser='*****'
 
 echo  -e "\n\r  创建 $table_name 表结构开始...... "
 time psql -d $gpdatabase  -h $gpip -p $gpport -U $gpuser -f $create_table
