@@ -2,7 +2,8 @@
   此脚本在运行时会先把oracle数据按照指定的分隔符下载到磁盘的目录下,再用替换脚本替换需要的分隔符和ascii字符,具体的替换方法请查看fileAsciiReplaceScriptAll.sh脚本
 # sqluldr2linux64 工具下载
    sqluldr2linux64 下载地址:链接：https://pan.baidu.com/s/1pF_HMx5VUdwu16-cSn2ZBg   提取码：ddrn 
-
+    oracle 客户端下载地址:链接：https://pan.baidu.com/s/1Llt1hRJ0BL-NQQT8V90T8Q 
+提取码：rwjb 
 # ASCII特殊字符介绍
   ASCII特殊字符请查看:https://blog.csdn.net/xfg0218/article/details/80901752
   
